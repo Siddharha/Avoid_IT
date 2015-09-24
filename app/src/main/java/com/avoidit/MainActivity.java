@@ -116,7 +116,8 @@ public class MainActivity extends AppCompatActivity {
             Random p = new Random();
             id_st.setTranslationX (p.nextInt(width-id_st.getWidth()));
             j = 0;
-            id_st.setTranslationY (j);
+            id_st.setTranslationY(j);
+            id_st.setRotation((p.nextInt(3)*45));
         }
 
     }
