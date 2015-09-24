@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         touchListener();
         screenSize();
     }
-
     private void screenSize() {
        /* DisplayMetrics metrics = this.getResources().getDisplayMetrics();
         width = metrics.widthPixels;
@@ -47,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
          width = display.getWidth();
         height = display.getHeight();
     }
-
     private void touchListener() {
         game_id.setOnTouchListener(new OnSwipeTouchListener(this) {
             @Override
@@ -100,10 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
             };
     }
-
     private void player_Velocity() {
-
-
             id_plr.setTranslationX (i);
             Log.e("SIZE:",String.valueOf(i)+","+String.valueOf(width));
     }
@@ -121,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
