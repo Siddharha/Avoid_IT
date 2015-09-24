@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -23,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
 
     private Timer timer;
     private TimerTask timerTask;
-    private ImageView id_plr;
+    private ImageView id_plr,id_st;
     final Handler handler = new Handler();
     private RelativeLayout game_id;
-    private float i;
+    private float i,j;
     private int p,width,height;
 
     @Override
@@ -68,8 +69,10 @@ public class MainActivity extends AppCompatActivity {
     private void initailize() {
         id_plr = (ImageView)findViewById(R.id.id_plr);
         game_id = (RelativeLayout)findViewById(R.id.game_id);
+        id_st = (ImageView)findViewById(R.id.id_st);
         i = 0;
         p = 1;
+        j = 0;
     }
     @Override
     protected void onResume() {
@@ -91,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         rl_Switch();
                         player_Velocity();
+                        enemy_Behave();
 
                     }
         });
@@ -98,6 +102,25 @@ public class MainActivity extends AppCompatActivity {
 
             };
     }
+
+    private void enemy_Behave() {
+
+        if(j<=height)
+        {
+            id_st.setTranslationY (j);
+            j++;
+
+        }
+        else
+        {
+            Random p = new Random();
+            id_st.setTranslationX (p.nextInt(width-id_st.getWidth()));
+            j = 0;
+            id_st.setTranslationY (j);
+        }
+
+    }
+
     private void player_Velocity() {
             id_plr.setTranslationX (i);
             Log.e("SIZE:",String.valueOf(i)+","+String.valueOf(width));
